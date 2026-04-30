@@ -23,13 +23,13 @@ buildNumber.properties
 .vscode/
 
 # =========================
-# INTELLIJ (caso abra lá)
+# INTELLIJ 
 # =========================
 .idea/
 *.iml
 
 # =========================
-# ECLIPSE (opcional)
+# ECLIPSE 
 # =========================
 .project
 .classpath
