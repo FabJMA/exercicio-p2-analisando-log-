@@ -1,3 +1,5 @@
+package log.analisador.log;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

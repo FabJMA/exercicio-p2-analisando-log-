@@ -1,3 +1,6 @@
+package log.analisador.log;
+
+
 public class ManipulacaoLog {
     private String ip;
     private String data;
