@@ -1,17 +1,16 @@
 package log.analisador;
 
 import log.analisador.interacao.Menu;
+import log.analisador.log.RegexLog;
 
 public class Main {
     public static void main(String[] args) {
-        Menu menu = new Menu();
-        int opcao = -1;
-        opcao = menu.exibeMenu();
-        
-        if(opcao == 1|| opcao == 2|| opcao == 3) {
-        	
-        } else {
-        
-        }
+    	RegexLog t = new RegexLog();
+
+        String linha = "157.48.153.185 - - [19/Dec/2020:14:08:08 +0100] \"GET /favicon.ico HTTP/1.1\" 404 217 \"http://www.almhuette-raith.at/apache-log/access.log\" \"Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\" \"-\"\r\n";
+    	
+        String resultado = t.naoRespondidosNov(linha);
+        System.out.println(resultado);
+       
     }
 }
