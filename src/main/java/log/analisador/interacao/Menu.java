@@ -17,15 +17,35 @@ public class Menu {
         
         Scanner scan = new Scanner(System.in);
         opcao = scan.nextInt();
+
+		switch (opcao) {
+			//oi teste
+			case 1:
+				manipulaLog("Analise/recursosGrandes.txt");
+			case 2:
+				manipulaLog("Analise/naoRespondidosNovembro.txt");
+			case 3:
+				manipulaLog("Analise/sistemasOperacionais.txt");
+			case 4:
+				manipulaLog();
+			case 0:
+				System.out.println("Encerrando programa...\n");
+			default:
+				System.out.println("Digite um número válido!\n");
+
+		}
         
         while (opcao == 1) {
         	try {
         		
         	} catch (Exception e) {
-        		System.out.println("Digie um número válido!\n");
+        		System.out.println("Digite um número válido!\n");
         	}
         }
         return opcao;
+
     }
 
 }
+
+
