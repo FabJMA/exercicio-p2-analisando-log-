@@ -62,6 +62,7 @@ public class RegexLog {
     	}
     	
     	return null;
+    }
 
     
     public long buscaTamanhoRequisicao(String linha){
@@ -76,4 +77,5 @@ public class RegexLog {
 
     }
 
-    }
+    
+}
