@@ -18,10 +18,9 @@ public class Main {
             System.err.println("Erro ao criar a pasta: " + e.getMessage());
         }
 
-
         ManipulacaoArquivo teste = new ManipulacaoArquivo();
-        teste.manipulaLog();
-
-
+       teste.manipulaLog();
+       long media = teste.testeOpcao4();
+       System.out.println(media);
     }
 }

@@ -4,10 +4,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexLog {
+    Pattern pattern1 = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}).*?\".*?\" ([0-9]{3}) ([0-9]+)");
+    Pattern pattern2 = Pattern.compile(".*?\\- \\- \\[[0-9]{2}/(Dec/2020).*?\".*?\" ([0-9]{3}) [0-9]+ (\"http[^\"]+\")");
+    Pattern pattern4 = Pattern.compile(".*?\\- \\- \\[[0-9]{2}/[A-Z]{1}[a-z]{2}/2021.*?\"POST.*?\" [0-9]{3} ([0-9]+)");
     
     public String buscaRecursoGrande(String linha) {
-        Pattern pattern = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}).*?\".*?\" ([0-9]{3}) ([0-9]+)");
-        Matcher matcher = pattern.matcher(linha);
+        Matcher matcher = pattern1.matcher(linha);
 
 
         if (matcher.find()) {
@@ -22,14 +24,8 @@ public class RegexLog {
     }
     
     public String naoRespondidosNov(String linha) {    	
-    	
-    	//linha = "157.48.153.185 - - [19/Dec/2020:14:08:08 +0100] \"GET /favicon.ico HTTP/1.1\" 404 217 \"http://www.almhuette-raith.at/apache-log/access.log\" \"Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\" \"-\"\r\n";
-    	
-    	Pattern pattern = Pattern.compile(".*?\\- \\- \\[[0-9]{2}/(Dec/2020).*?\".*?\" ([0-9]{3}) [0-9]+ (\"http[^\"]+\")");
 
-    	
-    	//Pattern pattern = Pattern.compile(".*?\\- \\- \\[[0-9]{2}/(Dec/2020):[0-9]{2}:[0-9]{2}:[0-9]{2} \\+[0-9]{4}\\] \".?\" ([0-9]{3}) .?\n(\"http(.+)\")");
-    	Matcher matcher = pattern.matcher(linha);
+    	Matcher matcher = pattern2.matcher(linha);
     	
     	if (matcher.find()) {
     		String data = matcher.group(1);
@@ -41,6 +37,19 @@ public class RegexLog {
     		}
     	}
     	return null;
+    }
+    
+    
+    public long buscaTamanhoRequisicao(String linha){
+        Matcher matcher = pattern4.matcher(linha);
+
+        if(matcher.find()){
+
+            return Long.parseLong(matcher.group(1));
+            
+        }
+        return 0;
+
     }
 
 }
