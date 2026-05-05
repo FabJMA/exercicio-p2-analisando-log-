@@ -32,6 +32,7 @@ public class ManipulacaoArquivo{
         }
 
     }
+    
     public long testeOpcao4(){
         RegexLog regex = new RegexLog();
         try {
