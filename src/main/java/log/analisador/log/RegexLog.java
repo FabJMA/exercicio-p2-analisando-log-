@@ -48,7 +48,7 @@ public class RegexLog {
 
     	
     	if (matcher.find()) {
-    		String sistOp = matcher.group(2);
+    		String sistOp = matcher.group(1);
 
     		
 /*     		if (sistOp == "Windows") {
@@ -69,7 +69,7 @@ public class RegexLog {
             else if (sistOp == "Linux" || sistOp == "X11") {
                 contLinux++;
             }*/
-           return sistOp + "1";
+           return sistOp + " 1";
             
     	}
     	

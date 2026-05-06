@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 import log.analisador.log.RegexLog;
 
@@ -44,6 +45,40 @@ public class ManipulacaoArquivo{
             System.out.println("Erro: " + e.getMessage());
         }
 
+    }
+    public void calculoPorcentagem() {
+        try {
+            BufferedReader arquivo = new BufferedReader(new FileReader("Analise/sistemasOperacionais.txt"));
+            String linha;
+            int contGeral = 0;
+            int[] contadoras = new int [6];
+            while((linha = arquivo.readLine())!= null){
+                String[] partes = linha.split(" ");
+            if (partes[0] == "Windows") {
+                contadoras[0]++;
+            }
+            else if (partes[0] == "Ubuntu") {
+                contadoras[1]++;
+            }
+            else if (partes[0] == "Fedora") {
+                contadoras[2]++;
+            }
+            else if (partes[0] == "Mobile" || partes[0] == "Android") {
+                contadoras[3]++;
+            }
+            else if (partes[0] == "Macintosh") {
+                contadoras[4]++;
+            }
+            else if (partes[0] == "Linux" || partes[0] == "X11") {
+                contadoras[5]++;
+            }
+            contGeral++;    
+                
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
     }
     
     public long mediaRequisicoes(){
