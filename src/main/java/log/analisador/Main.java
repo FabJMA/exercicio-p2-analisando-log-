@@ -10,6 +10,7 @@ import log.analisador.arquivo.ManipulacaoArquivo;
 
 public class Main {
     public static void main(String[] args) {
+        RegexLog regex = new RegexLog();
         Path path = Paths.get("Analise");
 
         try {
