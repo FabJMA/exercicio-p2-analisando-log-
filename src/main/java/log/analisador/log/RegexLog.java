@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 public class RegexLog {
     Pattern pattern1 = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}).*?\".*?\" ([0-9]{3}) ([0-9]+)");
     Pattern pattern2 = Pattern.compile(".*?\\- \\- \\[[0-9]{2}/(Dec/2020).*?\".*?\" ([0-9]{3}) [0-9]+ (\"http[^\"]+\")");
+    Pattern pattern3 = Pattern.compile("[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3} \\- \\- \\[[0-9]{2}/[A-Z]{1}[a-z]{2}/2021.*?\".*?\" .*?\".*?\" .*?\\(([A-Z|iP]{1,2}[a-z|11]{1,20}).*?");
     Pattern pattern4 = Pattern.compile(".*?\\- \\- \\[[0-9]{2}/[A-Z]{1}[a-z]{2}/2021.*?\"POST.*?\" [0-9]{3} ([0-9]+)");
     
     public String buscaRecursoGrande(String linha) {
@@ -41,24 +42,35 @@ public class RegexLog {
     
 
     public String porcRequisicaoSO(String linha) {
-    	//linha = "42.236.10.125 - - [19/Dec/2020:15:23:10 +0100] \"GET / HTTP/1.1\" 200 10479 \"http://baidu.com/\" \"Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN\" \"-\"\r\n";
     	
-    	Pattern pattern = Pattern.compile(".*?\\- \\- \\[[0-9]{2}/[A-Z]{1}[a-z]{2}/(2020).*?\".*?\" .*?\".*?\" .*?\\(([A-Z|iP]{1,2}[a-z]{1,20}).*?");
-    	//Pattern pattern = Pattern.compile(".*?\\- \\- \\[[0-9]{2}/[A-Z]{1}[a-z]{2}/2020.*?\".*?\" .*?\".*?\" \\(([A-Z]{1}[a-z]{1,10});((.*?)Android) ((.*?)Mobile)");
-      	Matcher matcher = pattern.matcher(linha);
+      	Matcher matcher = pattern3.matcher(linha);
+//         int contGeral = 0, contWindows = 0, contLinux = 0, contMobile = 0, contFedora = 0, contUbuntu = 0, contMacintosh = 0;
+
     	
     	if (matcher.find()) {
-    		String d = matcher.group(1);
     		String sistOp = matcher.group(2);
-    		String mobile = "Mobile";
+
     		
-    		return d + " " + sistOp;
-    		
-    		/*
-    		if (android == "Android" || mobile == "Mobile") {
-    			return sistOp;
-    		}
-    		*/
+/*     		if (sistOp == "Windows") {
+                contWindows++;
+            }
+            else if (sistOp == "Ubuntu") {
+                contUbuntu++;
+            }
+            else if (sistOp == "Fedora") {
+                contFedora++;
+            }
+            else if (sistOp == "Mobile" || sistOp == "Android") {
+                contMobile++;
+            }
+            else if (sistOp == "Macintosh") {
+                contMacintosh++;
+            }
+            else if (sistOp == "Linux" || sistOp == "X11") {
+                contLinux++;
+            }*/
+           return sistOp + "1";
+            
     	}
     	
     	return null;
