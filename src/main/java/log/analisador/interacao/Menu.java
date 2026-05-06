@@ -13,35 +13,34 @@ public class Menu {
         				 + "3 - % de requisições por SO\n"
         				 + "4 - Média das requisições POST\n"
         				 + "0 - Sair\u001B[0m");
-        System.out.println("Digie a opção que deseja: ");
+        System.out.println("Digite a opção que deseja: ");
         
         Scanner scan = new Scanner(System.in);
         opcao = scan.nextInt();
 
-		switch (opcao) {
-			//oi teste
-			case 1:
-				manipulaLog("Analise/recursosGrandes.txt");
-			case 2:
-				manipulaLog("Analise/naoRespondidosNovembro.txt");
-			case 3:
-				manipulaLog("Analise/sistemasOperacionais.txt");
-			case 4:
-				manipulaLog();
-			case 0:
-				System.out.println("Encerrando programa...\n");
-			default:
-				System.out.println("Digite um número válido!\n");
+		while (opcao != 0) {
+			switch (opcao) {
+				case 1:
+					manipulaLog("Analise/recursosGrandes.txt");
+					break;
+				case 2:
+					manipulaLog("Analise/naoRespondidosNovembro.txt");
+					break;
+				case 3:
+					manipulaLog("Analise/sistemasOperacionais.txt");
+					break;
+				case 4:
+					manipulaLog();
+					break;
+				default:
+					System.out.println("Digite um número válido!\n");
+					break;
 
+			}
+			System.out.println("Digite a opção que deseja: ");
+			opcao = scan.nextInt();
 		}
         
-        while (opcao == 1) {
-        	try {
-        		
-        	} catch (Exception e) {
-        		System.out.println("Digite um número válido!\n");
-        	}
-        }
         return opcao;
 
     }
