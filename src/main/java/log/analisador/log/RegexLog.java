@@ -5,8 +5,9 @@ import java.util.regex.Pattern;
 
 public class RegexLog {
     Pattern pattern1 = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}).*?\".*?\" ([0-9]{3}) ([0-9]+)");
-    Pattern pattern2 = Pattern.compile(".*?\\- \\- \\[[0-9]{2}/(Dec/2020).*?\".*?\" ([0-9]{3}) [0-9]+ (\"http[^\"]+\")");
-    Pattern pattern4 = Pattern.compile(".*?\\- \\- \\[[0-9]{2}/[A-Z]{1}[a-z]{2}/2021.*?\"POST.*?\" [0-9]{3} ([0-9]+)");
+    Pattern pattern2 = Pattern.compile("[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3} \\- \\- \\[[0-9]{2}/(Nov/2021).*?\".*?\" ([0-9]{3}) [0-9]+ (\"http[^\"]+\")");
+    
+    Pattern pattern4 = Pattern.compile("[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3} \\- \\- \\[[0-9]{2}/[A-Z]{1}[a-z]{2}/2021.*?\"POST.*?\" [0-9]{3} ([0-9]+)");
     
     public String buscaRecursoGrande(String linha) {
         Matcher matcher = pattern1.matcher(linha);

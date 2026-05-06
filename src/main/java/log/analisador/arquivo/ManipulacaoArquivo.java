@@ -8,7 +8,9 @@ import log.analisador.log.RegexLog;
 
 public class ManipulacaoArquivo{
 
-    public void manipulaLog(RegexLog regex, String nome){
+    RegexLog regex = new RegexLog();
+
+    public void manipulaLog(String nome){
         try {
             BufferedReader arquivo = new BufferedReader(new FileReader("access.log"));
             BufferedWriter escritor = new BufferedWriter(new FileWriter(nome));
@@ -44,7 +46,7 @@ public class ManipulacaoArquivo{
 
     }
     
-    public long mediaRequisicoes(RegexLog regex){
+    public long mediaRequisicoes(){
         try {
             BufferedReader arquivo = new BufferedReader(new FileReader("access.log"));
             String linha;
