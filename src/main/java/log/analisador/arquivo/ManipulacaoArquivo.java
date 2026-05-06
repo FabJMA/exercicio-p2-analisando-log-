@@ -8,22 +8,33 @@ import log.analisador.log.RegexLog;
 
 public class ManipulacaoArquivo{
 
-    public void manipulaLog(){
-        RegexLog regex = new RegexLog();
+    public void manipulaLog(RegexLog regex, String nome){
         try {
             BufferedReader arquivo = new BufferedReader(new FileReader("access.log"));
-            BufferedWriter escritor = new BufferedWriter(new FileWriter("Analise/recursosGrandes.txt"));
+            BufferedWriter escritor = new BufferedWriter(new FileWriter(nome));
             String linha;
             String resultado;
             while((linha = arquivo.readLine())!= null){
-                resultado = regex.buscaRecursoGrande(linha);
-                if (resultado != null){
+                switch (nome){
+                    case "Analise/recursosGrandes.txt":
+                        resultado = regex.buscaRecursoGrande(linha);
+                        break;
+                    case "Analise/naoRespondidosNovembro.txt":
+                        resultado = regex.naoRespondidosNov(linha);
+                        break;
+                    case "Analise/sistemasOperacionais.txt":
+                        resultado = regex.porcRequisicaoSO(linha);
+                        break;
+                    default:
+                        resultado = null;
+                        System.out.println("Houve algum erro.");
+                        break;
+                    
+            }
+            if (resultado != null){
                 escritor.write(resultado);
                 escritor.newLine();
-                }
-                
-                
-                
+                }     
             }
 
             
@@ -33,8 +44,7 @@ public class ManipulacaoArquivo{
 
     }
     
-    public long testeOpcao4(){
-        RegexLog regex = new RegexLog();
+    public long mediaRequisicoes(RegexLog regex){
         try {
             BufferedReader arquivo = new BufferedReader(new FileReader("access.log"));
             String linha;
@@ -61,6 +71,4 @@ public class ManipulacaoArquivo{
 
     }
     
-
-
 }
