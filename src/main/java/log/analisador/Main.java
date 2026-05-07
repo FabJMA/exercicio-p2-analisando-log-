@@ -1,38 +1,26 @@
 package log.analisador;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import log.analisador.arquivo.ManipulacaoArquivo;
 import log.analisador.interacao.Menu;
 
 
 public class Main {
     public static void main(String[] args) {
-        ManipulacaoArquivo manipulacao = new ManipulacaoArquivo();
-        Path path = Paths.get("Analise");
+        ManipulacaoArquivo manipulacao = new ManipulacaoArquivo("Analise");
         Menu menu = new Menu();
-
-        try {
-            Files.createDirectories(path);
-            System.out.println("Pasta 'Analise' criada com sucesso!");
-        } catch (IOException e) {
-            System.err.println("Erro ao criar a pasta: " + e.getMessage());
-        }
         int opcao = -1;
         while(opcao!=0){
             opcao = menu.exibeMenu();
             switch (opcao) {
                     case 1:
-                        manipulacao.manipulaLog("Analise/recursosGrandes.txt");
+                        manipulacao.manipulaLog("recursosGrandes.txt",1);
                         break;
                     case 2:
-                        manipulacao.manipulaLog("Analise/naoRespondidosNovembro.txt");
+                        manipulacao.manipulaLog("naoRespondidosNovembro.txt",2 );
                         break;
                     case 3:
-                        manipulacao.manipulaLog("Analise/sistemasOperacionais.txt");
+                        manipulacao.manipulaLog("temp.txt",3);
+                        manipulacao.calculoPorcentagem();
+
                         break;
                     case 4:
                         System.out.println("A média é: " + manipulacao.mediaRequisicoes());

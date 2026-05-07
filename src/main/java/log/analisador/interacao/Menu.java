@@ -3,11 +3,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
+    private Scanner scan = new Scanner(System.in);
 
     public int exibeMenu() {
         int opcao = -1;
-        Scanner scan = new Scanner(System.in);
-        
         System.out.println("\u001B[34m"
                          + "1 - Recursos Grandes Respondidos\n"
                          + "2 - Não Respondidos\n"
