@@ -17,7 +17,7 @@ public class ManipulacaoArquivo{
         File pastaVazia = new File(pasta);
         if (!pastaVazia.exists()) {
             if (pastaVazia.mkdirs()) {
-                System.out.println("Pasta '" + pasta + "Criada.");
+                System.out.println("\u001B[32mPasta '" + pasta + "Criada.\u001B[30m");
             }
         }
     }
@@ -54,7 +54,7 @@ public class ManipulacaoArquivo{
             }
             
         } catch (Exception e) {
-            System.out.println("Erro ao manipular o log: " + e.getMessage());
+            System.out.println("\u001B[31m Erro ao manipular o log: " + e.getMessage() + "\u001B[0m");
         }
     }
     
@@ -99,7 +99,7 @@ public class ManipulacaoArquivo{
             }
             
         } catch (Exception e) {
-            System.err.println("Erro no cálculo: " + e.getMessage());
+            System.err.println("\u001B[31mErro no cálculo: " + e.getMessage() + "\u001B[0m");
         } finally {
             arquivoTemp.delete(); 
         }
@@ -125,7 +125,7 @@ public class ManipulacaoArquivo{
             }
             
         } catch (Exception e) {
-            System.err.println("Erro na média: " + e.getMessage());
+            System.err.println("\u001B[31mErro na média: " + e.getMessage() + "\u001B[0m");
         }
         return 0;
     }

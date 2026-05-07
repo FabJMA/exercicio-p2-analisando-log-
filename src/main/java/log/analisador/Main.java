@@ -13,23 +13,25 @@ public class Main {
             switch (opcao) {
                     case 1:
                         manipulacao.manipulaLog("recursosGrandes.txt",1);
+                        System.out.println("\u001B[32mArquivo 'recursosGrandes.txt' foi gerado com sucesso!\n\u001B[0m");
                         break;
                     case 2:
                         manipulacao.manipulaLog("naoRespondidosNovembro.txt",2 );
+                        System.out.println("\u001B[32mArquivo 'naoRespondidosNovembro.txt' foi gerado com sucesso!\n\u001B[0m");
                         break;
                     case 3:
                         manipulacao.manipulaLog("temp.txt",3);
                         manipulacao.calculoPorcentagem();
-
+                        System.out.println("\u001B[32mArquivo 'sistemasOperacionais.txt' foi gerado com sucesso!\n\u001B[0m");
                         break;
                     case 4:
-                        System.out.println("A média é: " + manipulacao.mediaRequisicoes());
+                        System.out.println("\u001B[36mA média é: " + manipulacao.mediaRequisicoes() + "\n\u001B[0m");
                         break;
                     case 0:
-                        System.out.println("Saindo do menu...\n");
+                        System.out.println("\u001B[35mSaindo do menu...\n\u001B[0m");
                         break;
                     default:
-                        System.out.println("Digite um número válido!\n");
+                        System.out.println("\u001B[33mDigite um número válido!\n\u001B[0m");
                         break;
                 }
             }
