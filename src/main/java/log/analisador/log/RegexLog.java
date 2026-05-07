@@ -16,7 +16,6 @@ public class RegexLog {
     public String buscaRecursoGrande(String linha) {
         Matcher matcher = patternOpcao1.matcher(linha);
 
-
         if (matcher.find()) {
             String ip = matcher.group(1);
             int status = Integer.parseInt(matcher.group(2));
@@ -71,9 +70,8 @@ public class RegexLog {
             }
         }
     
-    
-    return 0; 
-}
+         return 0; 
+    }
 
     
 }
