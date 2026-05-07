@@ -33,6 +33,7 @@ public class Main {
                         break;
                     case 3:
                         manipulacao.manipulaLog("Analise/sistemasOperacionais.txt");
+                        manipulacao.calculoPorcentagem();
                         break;
                     case 4:
                         System.out.println("A média é: " + manipulacao.mediaRequisicoes());

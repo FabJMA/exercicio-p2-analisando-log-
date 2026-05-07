@@ -49,6 +49,7 @@ public class ManipulacaoArquivo{
     public void calculoPorcentagem() {
         try {
             BufferedReader arquivo = new BufferedReader(new FileReader("Analise/sistemasOperacionais.txt"));
+            BufferedWriter escritor = new BufferedWriter(new FileWriter("Analise/sistemasOperacionais.txt"));
             String linha;
             int contGeral = 0;
             int[] contadoras = new int [6];
@@ -74,6 +75,12 @@ public class ManipulacaoArquivo{
             }
             contGeral++;    
                 
+            }
+            String[] sistOp = {"Windows", "Ubuntu", "Fedora", "Mobile", "Macintosh", "Linux"};
+            float[] porcento = {contadoras[0]/contGeral, contadoras[1]/contGeral, contadoras[2]/contGeral, contadoras[3]/contGeral, contadoras[4]/contGeral, contadoras[5]/contGeral};
+            for(int i = 0; i < 6; i++){
+                escritor.write(sistOp[i] + " " + porcento[i]);
+                escritor.newLine();
             }
             
         } catch (Exception e) {
