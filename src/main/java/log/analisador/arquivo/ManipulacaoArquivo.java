@@ -23,7 +23,7 @@ public class ManipulacaoArquivo{
     }
 
     public void manipulaLog(String nomeArquivo, int tipoOperacao) {
-        String caminhoCompleto = "Analise/" + nomeArquivo;
+       File caminhoCompleto = new File (this.pasta, nomeArquivo);
 
         try (BufferedReader arquivo = new BufferedReader(new FileReader("access.log"));
             BufferedWriter escritor = new BufferedWriter(new FileWriter(caminhoCompleto))) {
