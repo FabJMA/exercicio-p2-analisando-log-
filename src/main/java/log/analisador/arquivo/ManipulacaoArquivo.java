@@ -71,7 +71,6 @@ public class ManipulacaoArquivo{
             int[] contadoras = new int[6];
 
             while ((linha = leitor.readLine()) != null) {
-                linha = linha.trim(); 
 
                 if (linha.equals("Windows")) {
                     contadoras[0]++;
