@@ -78,7 +78,7 @@ public class ManipulacaoArquivo{
                     contadoras[1]++;
                 } else if (linha.equals("Fedora")) {
                     contadoras[2]++;
-                } else if (linha.equals("Mobile") || linha.equals("Android")) {
+                } else if (linha.equals("Mobile") || linha.equals("Android") || linha.equals("iPhone") || linha.equals("iPad")) {
                     contadoras[3]++; 
                 } else if (linha.equals("Macintosh")) {
                     contadoras[4]++;
